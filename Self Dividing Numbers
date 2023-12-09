@@ -1,27 +1,15 @@
-class Solution {
-    public List<Integer> selfDividingNumbers(int left, int right) {
-        List<Integer> result = new ArrayList<>();
+class Solution:
+    def selfDividingNumbers(self, left: int, right: int) -> List[int]:
+        
+        def is_self_dividing(num):
+            for digit in str(num):
+                if digit == '0' or num % int(digit) != 0:
+                    return False
+            return True
 
-        for (int number = left; number <= right; number++) {
-            if (isSelfDividing(number)) {
-                result.add(number);
-            }
-        }
+        mylist = []
+        for num in range(left, right + 1):
+            if is_self_dividing(num):
+                mylist.append(num)
 
-        return result;
-    }
-
-    private boolean isSelfDividing(int number) {
-        int firstNum = number;
-
-        while (number > 0) {
-            int digit = number % 10;
-            if (digit == 0 || firstNum % digit != 0) {
-                return false;
-            }
-            number /= 10;
-        }
-
-        return true;
-    }
-}
+        return mylist
