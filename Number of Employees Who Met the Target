@@ -1,5 +1,7 @@
-class Solution {
-  public int numberOfEmployeesWhoMetTarget(int[] hours, int target) {
-    return (int) Arrays.stream(hours).filter(hour -> hour >= target).count();
-  }
-}
+class Solution:
+    def numberOfEmployeesWhoMetTarget(self, hours: List[int], target: int) -> int:
+        employees = 0
+        for i in range(0 ,len(hours)):
+            if hours[i] >= target:
+                employees += 1
+        return employees
