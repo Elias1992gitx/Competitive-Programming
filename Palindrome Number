@@ -1,16 +1,16 @@
-class Solution {
-  public boolean isPalindrome(int x) {
-    if (x < 0)
-      return false;
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+  
+        reversNum = 0
+        y = x
 
-    long reversed = 0;
-    int y = x;
-
-    while (y > 0) {
-      reversed = reversed * 10 + y % 10;
-      y /= 10;
-    }
-
-    return reversed == x;
-  }
-}
+        while x > 0:
+            lastDigit = x % 10
+            reversNum = reversNum * 10 + lastDigit
+            x //= 10
+        
+        if reversNum == y:
+            return True
+        else:
+            False
+        
