@@ -1,0 +1,23 @@
+class Solution:
+    def reformatNumber(self, number: str) -> str:
+       number = number.replace(' ','').replace('-','')
+       blocks = []
+
+       while len(number) > 4:
+           blocks.append(number[:3])
+           number = number[3:]
+
+       if len(number) == 2:
+            blocks.append(number)
+       elif len(number) == 3:
+            blocks.append(number)
+       elif len(number) == 4:
+            blocks.extend([number[:2],number[2:]])
+            
+       result_string = '-'.join(blocks)
+
+       return result_string
+
+
+
+
