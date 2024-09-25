@@ -1,0 +1,16 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        anagrams = defaultdict(list)  
+        for word in strs:
+            sorted_word = ''.join(sorted(word))
+            anagrams[sorted_word].append(word)
+        
+        return list(anagrams.values())
+solution = Solution()
+strs1 = ["eat", "tea", "tan", "ate", "nat", "bat"]
+strs2 = [""]
+strs3 = ["a"]
+
+print(solution.groupAnagrams(strs1))  
+print(solution.groupAnagrams(strs2))  
+print(solution.groupAnagrams(strs3))  
